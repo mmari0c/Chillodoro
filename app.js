@@ -2,9 +2,11 @@
 
 let workTittle = document.querySelector("#work")
 let breakTittle = document.querySelector("#break")
+let relaxTittle = document.querySelector("#relax")
 
-let workTime = 25;
-let breakTime = 5;
+const workTime = 25;
+const breakTime = 5;
+const relaxTime = 15;
 
 let seconds = "00"
 
@@ -42,6 +44,7 @@ function start() {
 
    let workMinutes = workTime - 1;
    let breakMinutes = breakTime - 1;
+   let relaxMinutes = relaxTime - 1;
 
    breakCount = 0;
 
@@ -49,8 +52,8 @@ function start() {
 
    let timerFunction = () => {
 
-      document.querySelector("#minutes").innerHTML = workMinutes;
-      document.querySelector("#seconds").innerHTML = seconds;
+      document.querySelector("#minutes").innerHTML = workMinutes.toString().padStart(2, "0");
+      document.querySelector("#seconds").innerHTML = seconds.toString().padStart(2, "0");      
       const alarm = document.getElementById('alarmSound');
 
       seconds = seconds - 1;
@@ -72,7 +75,15 @@ function start() {
                timerInterval = setInterval(timerFunction, 1000); // restart
             }, 8000);
 
-            if(breakCount % 2 === 0) {
+            if(breakCount !== 0 && breakCount % 8 === 0) {
+               //longer break
+               workMinutes = relaxMinutes;
+               breakCount++
+
+               workTittle.classList.remove("active");
+               relaxTittle.classList.add("active")
+            }
+            else if(breakCount % 2 === 0) {
                // start break
                workMinutes = breakMinutes;
                breakCount++
@@ -80,13 +91,15 @@ function start() {
                // change the panel
                workTittle.classList.remove("active");
                breakTittle.classList.add("active");
-            } else {
+            }
+            else {
                // continue working
-               workMinutes = workTime;
+               workMinutes = workTime - 1;
                breakCount++
 
                // change the pabel
                breakTittle.classList.remove("active");
+               relaxTittle.classList.remove("active");
                workTittle.classList.add("active");
 
                player.volume = 0;
