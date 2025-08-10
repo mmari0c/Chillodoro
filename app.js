@@ -51,6 +51,8 @@ function startCountdown(callback) {
    }, 800); // 800ms between each step
 }
 
+let timerInterval;
+
 
 // start timer
 function start() {
@@ -79,15 +81,13 @@ function start() {
       }, 150); // run every 150ms
 
       // change the time
-      seconds = 59;
+      seconds = 5;
 
       let workMinutes = workTime - 1;
       let breakMinutes = breakTime - 1;
       let relaxMinutes = relaxTime - 1;
 
       breakCount = 0;
-
-      let timerInterval;
 
       let timerFunction = () => {
 
@@ -97,11 +97,12 @@ function start() {
 
          seconds = seconds - 1;
 
-         if(seconds === 0) {
+         if(seconds === -1) {
 
-            workMinutes = workMinutes - 1;
+            workMinutes = workMinutes - 1; 
 
             if(workMinutes === -1) {
+
 
                player.pause();
 
@@ -158,7 +159,7 @@ function start() {
                  }, 8000); // same pause as timer resume
                }
             } 
-            seconds = 59;         
+            seconds = 5;         
          }
       }
 
