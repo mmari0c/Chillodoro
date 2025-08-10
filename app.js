@@ -40,7 +40,7 @@ function startCountdown(callback) {
          countdownElement.classList.add('countdown-animate');
          setTimeout(() => countdownElement.classList.remove('countdown-animate'), 100);
       } else if (count === 0) {
-         countdownElement.textContent = 'Lock in!';
+         countdownElement.textContent = 'lock in!';
          countdownElement.classList.add('lockin-animate');
       } else {
          // Remove overlay and start actual timer
