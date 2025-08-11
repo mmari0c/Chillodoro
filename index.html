@@ -29,10 +29,10 @@
             <h1>chillodoro</h1>
 
             <div class="panel">
-               <p id="work">work</p>
-               <p id="break">chill</p>
-               <p id="relax">relax<p>
-            </div>
+               <p id="work" class="info" data-info="Focus completely on your task without distractions.">work</p>
+               <p id="break" class="info" data-info="Rest, stretch, and clear your mind.">break</p>
+               <p id="long-break" class="info" data-info="Take a bigger pause to recharge.">chill</p>
+             </div>             
 
             <div class="timer">
                <div class="circle">
@@ -48,10 +48,14 @@
                <button id="start" onclick="start()"><i class="fa-solid fa-play"></i></button>
                <a id="reset" href="/"><i class="fa-solid fa-arrow-rotate-left"></i></a>   
             </div>
-            
+             
          </div>
    </section>
 
+   <div id="tipCharacter">
+      <img src="character.svg" alt="Chillodoro Mascot">
+      <p id="tipText"></p>
+   </div>
 
    <script src="app.js"></script>
 </body>
