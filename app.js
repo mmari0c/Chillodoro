@@ -81,7 +81,7 @@ function start() {
       }, 150); // run every 150ms
 
       // change the time
-      seconds = 5;
+      seconds = 59;
 
       let workMinutes = workTime - 1;
       let breakMinutes = breakTime - 1;
@@ -159,7 +159,7 @@ function start() {
                  }, 8000); // same pause as timer resume
                }
             } 
-            seconds = 5;         
+            seconds = 59;         
          }
       }
 
