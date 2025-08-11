@@ -166,3 +166,26 @@ function start() {
       timerInterval = setInterval(timerFunction, 1000);
    });
 }
+
+// tips
+
+const tips = [
+   "Stand up and stretch!",
+   "Drink some water.",
+   "Look away from the screen for a few minutes.",
+   "Do a quick breathing exercise."
+ ];
+ 
+ function showTip() {
+   const tipEl = document.getElementById('tipCharacter');
+   const tipText = document.getElementById('tipText');
+ 
+   tipText.textContent = tips[Math.floor(Math.random() * tips.length)];
+ 
+   tipEl.classList.add('show');
+ 
+   // Hide after break ends (adjust delay as needed)
+   setTimeout(() => {
+     tipEl.classList.remove('show');
+   }, breakTime * 60 * 1000);
+ }

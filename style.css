@@ -246,5 +246,31 @@ section {
    opacity: 1;
    bottom: -10px; /* final position */
  }
+
+ .speech-bubble {
+   position: relative;
+   background: var(--color-secondary, #fff);
+   border-radius: 8px;
+   padding: 10px 15px;
+   margin-top: 10px;
+   color: var(--color-primary, #000);
+   font-size: 0.9rem;
+   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+   right: 40%;
+   top: -10px;
+ }
+ 
+ /* Triangle pointer */
+/* Triangle pointer - upside down */
+.speech-bubble::after {
+   content: '';
+   position: absolute;
+   top: 100%; /* place it below the bubble */
+   right: 20px;
+   border-width: 8px;
+   border-style: solid;
+   border-color: var(--color-secondary, #fff) transparent transparent transparent;
+ }
+ 
  
  
