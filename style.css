@@ -2,7 +2,7 @@
    font-size: 62.5%; 
 
    --color-primary: hsl(235, 35%, 19%);
-   --color-secondary: hsl(45, 88%, 74%);
+   --color-secondary: #F5C45E;
    --color-font: hsla(0, 0%, 100%, 0.902);
 
    --color-shadow: hsl(235, 36%, 35%);
