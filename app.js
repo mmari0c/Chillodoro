@@ -41,15 +41,20 @@ const workMessages = [
    const tipEl = document.getElementById('tipCharacter');
    const tipText = document.querySelector('.speech-bubble');
  
-   tipText.innerHTML = tips[Math.floor(Math.random() * tips.length)];
+   let message = "meow!"; // default message
  
+   if (Array.isArray(tips) && tips.length > 0) {
+     message = tips[Math.floor(Math.random() * tips.length)];
+   }
+ 
+   tipText.innerHTML = message;
    tipEl.classList.add('show');
-
+ 
    setTimeout(() => {
-      tipEl.classList.remove('show');
-    }, 8000); // hides after 8 seconds
-
+     tipEl.classList.remove('show');
+   }, 8000); // hides after 8 seconds
  }
+ 
 
 let seconds = "00"
 
@@ -60,6 +65,8 @@ window.onload = () => {
    document.querySelector("#seconds").innerHTML = seconds;
 
    workTittle.classList.add('active')
+
+   showTip();
 }
 
 function startCountdown(callback) {
