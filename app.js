@@ -1,5 +1,4 @@
 // Variables
-
 let workTittle = document.querySelector("#work")
 let breakTittle = document.querySelector("#break")
 let relaxTittle = document.querySelector("#relax")
@@ -7,6 +6,42 @@ let relaxTittle = document.querySelector("#relax")
 const workTime = 25;
 const breakTime = 5;
 const relaxTime = 15;
+
+const workMessages = [
+   "You're doing great, keep it up!",
+   "Stay focused, you’ve got this!",
+   "Every second counts toward your goal.",
+   "Small steps make big progress."
+ ];
+ // Tips for short breaks
+ const shortBreakTips = [
+   "Stand up and stretch!",
+   "Drink some water.",
+   "Look away from the screen for a few minutes.",
+   "Do a quick breathing exercise."
+ ];
+ // Tips for long breaks
+ const longBreakTips = [
+   "Take a walk outside for fresh air.",
+   "Listen to a song you love.",
+   "Make a healthy snack.",
+   "Give your eyes a longer rest from screens."
+ ];
+
+ // tips 
+ function showTip(tips) {
+   const tipEl = document.getElementById('tipCharacter');
+   const tipText = document.querySelector('.speech-bubble');
+ 
+   tipText.innerHTML = tips[Math.floor(Math.random() * tips.length)];
+ 
+   tipEl.classList.add('show');
+
+   setTimeout(() => {
+      tipEl.classList.remove('show');
+    }, 8000); // hides after 8 seconds
+
+ }
 
 let seconds = "00"
 
@@ -94,12 +129,28 @@ function start() {
          document.querySelector("#minutes").innerHTML = workMinutes.toString().padStart(2, "0");
          document.querySelector("#seconds").innerHTML = seconds.toString().padStart(2, "0");      
          const alarm = document.getElementById('alarmSound');
-
          seconds = seconds - 1;
+
+         // show tip
+// show tip
 
          if(seconds === -1) {
 
-            workMinutes = workMinutes - 1; 
+            workMinutes = workMinutes - 1;
+            
+            if (Math.random() < 1) {
+               // Figure out the stage
+               if (breakCount !== 0 && breakCount % 8 === 0) {
+               // Long break (after 4 complete cycles: breakCount 8, 16, 24, etc.)
+               showTip(longBreakTips);
+               } else if (breakCount % 2 === 1) {
+               // Short break (odd numbers: 1, 3, 5, 7, 9, 11, 13, 15, etc.)
+               showTip(shortBreakTips);
+               } else {
+               // Work session (even numbers: 0, 2, 4, 6, 10, 12, 14, etc.)
+               showTip(workMessages);
+               }
+            }
 
             if(workMinutes === -1) {
 
@@ -156,7 +207,7 @@ function start() {
                              clearInterval(fadeInterval);
                          }
                      }, 150);
-                 }, 8000); // same pause as timer resume
+                 }, 8000); // same pause as timer resume                
                }
             } 
             seconds = 59;         
@@ -166,26 +217,3 @@ function start() {
       timerInterval = setInterval(timerFunction, 1000);
    });
 }
-
-// tips
-
-const tips = [
-   "Stand up and stretch!",
-   "Drink some water.",
-   "Look away from the screen for a few minutes.",
-   "Do a quick breathing exercise."
- ];
- 
- function showTip() {
-   const tipEl = document.getElementById('tipCharacter');
-   const tipText = document.getElementById('tipText');
- 
-   tipText.textContent = tips[Math.floor(Math.random() * tips.length)];
- 
-   tipEl.classList.add('show');
- 
-   // Hide after break ends (adjust delay as needed)
-   setTimeout(() => {
-     tipEl.classList.remove('show');
-   }, breakTime * 60 * 1000);
- }
