@@ -8,24 +8,32 @@ const breakTime = 5;
 const relaxTime = 15;
 
 const workMessages = [
-   "You're doing great, keep it up!",
-   "Stay focused, you’ve got this!",
-   "Every second counts toward your goal.",
-   "Small steps make big progress."
+   "You're doing great, keep it up!, meow!",
+   "Stay focused, you’ve got this!, meow!",
+   "Every second counts toward your goal, meow!",
+   "Small steps make big progress, meow!",
+   "Don't forget to breathe and stay calm, meow!",
+   "Does the task seem hard? Break it down into smaller parts, meow!",
+   "Remember, consistency is key to success, meow!",
+   "Does the phone keep distracting you? Lock that phone away! meow!",
  ];
  // Tips for short breaks
  const shortBreakTips = [
-   "Stand up and stretch!",
-   "Drink some water.",
-   "Look away from the screen for a few minutes.",
-   "Do a quick breathing exercise."
+   "Stand up and stretch! Your body will thank you, meow!",
+   "Drink some water. Hydration is important, meow!",
+   "Do a quick breathing exercise to relax your mind, meow!",
+   "Take a moment to appreciate your progress so far, meow!",
+   "Grab a healthy snack to refuel your energy, meow!",
+   "Chat with a friend to refresh your mind, meow!",
  ];
  // Tips for long breaks
  const longBreakTips = [
-   "Take a walk outside for fresh air.",
-   "Listen to a song you love.",
-   "Make a healthy snack.",
-   "Give your eyes a longer rest from screens."
+   "Take a walk outside for fresh air and a change of scenery, meow!",
+   "Listen to a song you love to lift your spirits, meow!",
+   "Give your eyes a rest from screens, meow!",
+   "Do a quick meditation or mindfulness exercise to clear your mind, meow!",
+   "How about a nap? Just 10-15 minutes can recharge you, meow!",
+   "Engage in a hobby you enjoy, like drawing or reading, meow!",
  ];
 
  // tips 
