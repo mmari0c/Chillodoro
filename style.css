@@ -1,12 +1,15 @@
 :root {
-   font-size: 62.5%; 
+   font-size: 62.5%;
+   --color-primary: hsl(145, 24%, 40%); /* muted moss green */
+   --color-secondary: hsl(14, 61%, 75%); /* peachy coral */
 
-   --color-primary: hsl(235, 35%, 19%);
-   --color-secondary: hsl(41, 88%, 66%);
-   --color-font: hsla(0, 0%, 100%, 0.902);
-
-   --color-shadow: hsl(235, 36%, 35%);
-   --color-secondary-shadow: hsl(41, 89%, 80%);
+   --color-accent: hsl(34, 70%, 65%); /* honey gold for warmth */
+   
+   --color-font: hsla(0, 0%, 98%, 0.95); /* soft off-white */
+   
+   --color-shadow: hsla(145, 20%, 20%, 0.4); /* moss-tinted shadow */
+   --color-secondary-shadow: hsla(12, 20%, 25%, 0.25); /* blush-tinted shadow */
+     
 }
 
 * {
@@ -254,7 +257,7 @@ section {
    border-radius: 8px;
    padding: 10px 15px;
    margin-top: 10px;
-   color: var(--color-primary, #000);
+   color: var(--color-font, #000);
    font-size: 1rem;
    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
    right: 35%;
