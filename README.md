@@ -11,10 +11,10 @@ Chillodoro is a cozy and effective Pomodoro timer web application designed to he
 - Fun cat mascot that appears with tips
 - Easy-to-use controls: start, reset, and visual timer display
 
-## Demo
+## Try It Yourself
 
-*Add your live demo link here (if you have one)*
-
+Check out Chillodoro live: [https://chillodoro.netlify.app/]([https://yourdomain.com](https://chillodoro.netlify.app/))
+  
 ## Technologies Used
 
 - HTML
