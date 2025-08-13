@@ -13,7 +13,7 @@ Chillodoro is a cozy and effective Pomodoro timer web application designed to he
 
 ## Try It Yourself
 
-Check out Chillodoro live: [https://chillodoro.netlify.app/]([https://chillodoro.netlify.app/]
+Check out Chillodoro live: [https://chillodoro.netlify.app/](https://chillodoro.netlify.app/)
   
 ## Technologies Used
 
