@@ -126,13 +126,24 @@ section {
    margin-top: 3rem;
 }
 
-.controls button {
+button {
    border: none;
    background-color: transparent;
    cursor: pointer;
 }
 
 .controls #reset {
+   display: none;
+}
+
+.volume-controls {
+   position: fixed;
+   bottom: 10px;;   /* distance from the top */
+   right: 10px; /* distance from the right */
+   cursor: pointer;
+}
+
+.volume-controls #volume-off {
    display: none;
 }
 

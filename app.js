@@ -3,6 +3,8 @@ let workTittle = document.querySelector("#work")
 let breakTittle = document.querySelector("#break")
 let relaxTittle = document.querySelector("#relax")
 
+let isMuted = false; // global flag
+
 const workTime = 25;
 const breakTime = 5;
 const relaxTime = 15;
@@ -103,7 +105,6 @@ function startCountdown(callback) {
 
 let timerInterval;
 
-
 // start timer
 function start() {
    // Disable start button during countdown
@@ -120,15 +121,14 @@ function start() {
       // Start at volume 0 (muted)
       player.volume = 0;
       player.play();
-
-      // Fade in over 3 seconds
+      
       let fadeInterval = setInterval(() => {
-          if (player.volume < 1) {
-              player.volume = Math.min(player.volume + 0.01, 1); // increase by 5%
-          } else {
-              clearInterval(fadeInterval); // stop once full volume
-          }
-      }, 150); // run every 150ms
+         if (player.volume < 1 && !isMuted) {
+            player.volume = Math.min(player.volume + 0.01, 1);
+         } else {
+            clearInterval(fadeInterval);
+         }
+      }, 150);
 
       // change the time
       seconds = 59;
@@ -232,3 +232,21 @@ function start() {
       timerInterval = setInterval(timerFunction, 1000);
    });
 }
+
+function toggleMute() {
+   const player = document.getElementById("lofiPlayer");
+   const volumeOn = document.getElementById("volume-on");
+   const volumeOff = document.getElementById("volume-off");
+ 
+   // Flip mute state
+   player.muted = !player.muted;
+ 
+   if (player.muted) {
+     volumeOn.style.display = "none";
+     volumeOff.style.display = "inline";
+   } else {
+     volumeOn.style.display = "inline";
+     volumeOff.style.display = "none";
+   }
+ }
+ 
