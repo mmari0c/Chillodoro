@@ -103,6 +103,18 @@ function startCountdown(callback) {
    }, 800); // 800ms between each step
 }
 
+function updateTitle(minutes, seconds, message) {
+   if (minutes === undefined || seconds === undefined) {
+     // fallback to just the message (e.g., "Break Time!")
+     document.title = message;
+   } else {
+     let formatted = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+     // include both message and timer
+     document.title = `${formatted}`;
+   }
+ }
+ 
+
 let timerInterval;
 
 // start timer
@@ -142,7 +154,10 @@ function start() {
       let timerFunction = () => {
 
          document.querySelector("#minutes").innerHTML = workMinutes.toString().padStart(2, "0");
-         document.querySelector("#seconds").innerHTML = seconds.toString().padStart(2, "0");      
+         document.querySelector("#seconds").innerHTML = seconds.toString().padStart(2, "0");
+         
+         updateTitle(workMinutes, seconds);
+
          const alarm = document.getElementById('alarmSound');
          seconds = seconds - 1;
 
@@ -188,6 +203,8 @@ function start() {
 
                   workTittle.classList.remove("active");
                   relaxTittle.classList.add("active")
+
+                  updateTitle(undefined, undefined, "Chill Time!");
                }
                else if(breakCount % 2 === 0) {
                   // start break
@@ -197,6 +214,8 @@ function start() {
                   // change the panel
                   workTittle.classList.remove("active");
                   breakTittle.classList.add("active");
+
+                  updateTitle(undefined, undefined, "Break Time!");
                }
                else {
                   // continue working
@@ -207,6 +226,8 @@ function start() {
                   breakTittle.classList.remove("active");
                   relaxTittle.classList.remove("active");
                   workTittle.classList.add("active");
+                  
+                  updateTitle(undefined, undefined, "Work Time!");
 
                   player.volume = 0;
                   player.play();
